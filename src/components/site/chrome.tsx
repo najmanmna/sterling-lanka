@@ -5,16 +5,13 @@ import { useState } from "react";
 import logo from "@/assets/logo.png";
 import mark from "@/assets/mark.png";
 import { contact } from "@/lib/catalogue";
-import { HOME_ONLY_MODE } from "@/lib/site-flags";
 
-const allNav = [
+const nav = [
   { to: "/", label: "Home" },
   { to: "/products", label: "Products" },
   { to: "/trade", label: "Import & Export" },
   { to: "/about", label: "About" },
 ] as const;
-
-const nav = HOME_ONLY_MODE ? [] : allNav;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -38,21 +35,17 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="col-start-3 flex items-center gap-4 justify-self-end">
-          {!HOME_ONLY_MODE && (
-            <Link to="/contact" className="group hidden items-center gap-1.5 bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest sm:inline-flex">
-              Request a quote
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          )}
-          {!HOME_ONLY_MODE && (
-            <button onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="relative h-6 w-6 text-foreground lg:hidden">
-              <Menu className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${open ? "rotate-45 opacity-0" : "rotate-0 opacity-100"}`} />
-              <X className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${open ? "rotate-0 opacity-100" : "-rotate-45 opacity-0"}`} />
-            </button>
-          )}
+          <Link to="/contact" className="group hidden items-center gap-1.5 bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-forest sm:inline-flex">
+            Request a quote
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+          <button onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} className="relative h-6 w-6 text-foreground lg:hidden">
+            <Menu className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${open ? "rotate-45 opacity-0" : "rotate-0 opacity-100"}`} />
+            <X className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${open ? "rotate-0 opacity-100" : "-rotate-45 opacity-0"}`} />
+          </button>
         </div>
       </div>
-      {!HOME_ONLY_MODE && open && (
+      {open && (
         <nav className="animate-in slide-in-from-top-4 fade-in border-t border-border bg-background px-6 pb-8 pt-4 duration-300 lg:hidden">
           {[...nav, { to: "/contact", label: "Request a quote" } as const].map((i, idx) => (
             <Link
