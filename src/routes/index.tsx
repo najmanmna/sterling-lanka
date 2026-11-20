@@ -60,7 +60,7 @@ function Hero() {
         <div className="sterling-cut pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[62%] bg-ink/25 lg:block" />
         <MarkOutline className="pointer-events-none absolute -left-24 top-10 h-[130%] text-accent/25" />
         <div className="relative mx-auto max-w-[1400px] px-6 pb-10 pt-14 lg:pt-20">
-          <p className="label text-accent">Sri Lanka · Import & Export</p>
+          <p className="label hero-label text-accent">Sri Lanka · Import & Export</p>
           <h1 className="mt-8 text-[3.6rem] leading-[0.95] sm:text-[6rem] xl:text-[8.5rem]">
             Sri Lanka<br />
             <span className="text-accent">to the</span><br />

@@ -67,7 +67,7 @@
   --color-forest: var(--forest);
   --font-display: "Young Serif", Georgia, serif;
   --font-sans: "Figtree", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "Figtree", system-ui, sans-serif;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -136,6 +136,7 @@
 }
 
 .label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.hero-label { font-family: var(--font-sans); font-weight: 600; }
 .grain { background-image: radial-gradient(oklch(0.2 0.012 150 / 6%) 1px, transparent 1px); background-size: 4px 4px; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee { animation: marquee 60s linear infinite; }
